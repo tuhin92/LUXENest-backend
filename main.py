@@ -1,10 +1,12 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 from feedback import FeedbackManager
+from payment import payment_bp
 
 app = Flask(__name__)
 cors = CORS(app, origins='*')
 feedback_manager = FeedbackManager()
+app.register_blueprint(payment_bp, url_prefix='/payment')
 
 @app.route("/api/data", methods=['GET'])
 def data():
