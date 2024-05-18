@@ -1,15 +1,4 @@
-from flask import Flask, jsonify
-from flask_cors import CORS
-from feedback import FeedbackManager
-
-app = Flask(__name__)
-cors = CORS(app, origins='*')
-feedback_manager = FeedbackManager()
-
-@app.route("/api/data", methods=['GET'])
-def data():
-    return jsonify(
-        [
+[
     {
       "id": 1,
       "name": "Luxury Villa with Ocean View",
@@ -361,7 +350,3 @@ def data():
       "image": "https://i.ibb.co/XCrBPJ5/pexels-pixabay-280221.jpg"
     }
   ]
-
-    )
-if __name__ == "__main__":
-    app.run(debug=True, port=8080)
